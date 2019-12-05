@@ -1,15 +1,10 @@
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 /********************************************************************
  * Programmer:	Ayub Isse
  * Class:  CS30S
  *
  * Assignment: December Exam
  *
- * Description: brief description of class
+ * Description: Calculates properties of an employee
  ***********************************************************************/
 
 // import libraries as needed here
@@ -44,7 +39,7 @@ public class Emp {
     * ****************************************/
     public Emp(){
         id = nextID++;
-    }
+    } // end Default constructor
     /*****************************************
     * Description: Initialized Constructor
     * 
@@ -57,7 +52,7 @@ public class Emp {
         id = nextID++;
         hours = h;
         wage = w;
-    }    
+    } // end Initialized Constructor 
            
     
     
@@ -72,7 +67,7 @@ public class Emp {
     * ****************************************/
     public int getId(){
         return this.id;
-    }
+    } // end getId
     /*****************************************
     * Description: Gets wage
     * 
@@ -82,7 +77,7 @@ public class Emp {
     * ****************************************/
     public double getWage(){
         return this.wage;
-    }
+    } // getWage
     /*****************************************
     * Description: Gets hours
     * 
@@ -92,7 +87,7 @@ public class Emp {
     * ****************************************/
     public int getHours(){
         return this.hours;
-    }
+    } // end getHours
     /*****************************************
     * Description: Get grosspay
     * 
@@ -102,7 +97,7 @@ public class Emp {
     * ****************************************/
     public double getGrossPay(){
         return this.hours * wage;
-    }
+    } // end getGrossPay
     /*****************************************
     * Description: Gets pay without overtime
     * 
@@ -117,7 +112,7 @@ public class Emp {
         else{
             return 40 * wage;
         }
-    }
+    } // end getNormPay
     /*****************************************
     * Description: Gets overtime pay only
     * 
@@ -132,8 +127,9 @@ public class Emp {
         else{
             return (this.hours - 40) *  wage * 1.5;
         }
-    }
-        /*****************************************
+    } // end getOtPay
+    
+    /*****************************************
     * Description: create a banner string
     * 
     * Interface:
@@ -147,11 +143,11 @@ public class Emp {
         bnr = "*******************************************" + nl;
         bnr += "Name:		Ayub" + nl;
         bnr += "Class:		CS30S" + nl;
-        bnr += "Assignment:	unk" + nl;
+        bnr += "Assignment:	Exam" + nl;
         bnr += "*******************************************" + nl;
         
         return bnr;
-    } // end 
+    } // end getBanner
    
     /*****************************************
     * Description: print banner information to the console window
@@ -159,7 +155,7 @@ public class Emp {
     * Interface:
     * 
     * 
-    * @return       cls: string, closing message 
+    * @return       cls string: closing message 
     * ****************************************/
     public static String getClosingMessage(){
         String cls = "";
@@ -167,16 +163,14 @@ public class Emp {
         cls = "end of proccesing";
         
         return cls;
-    }
+    } // end getClosingMessage
     
     /*****************************************
-    * Description:  Set wage
+    * Description:  create and return output 
     * 
     * Interface:
     * 
-    * 
-    *
-    * @param    x int: update for wage 
+    * @return    s string: holds and returns output
     ****************************************/
     public String toString(){
         String s = "";
@@ -188,7 +182,7 @@ public class Emp {
           s += String.format("%-10s %10.2f %s", "Normal Pay:", this.getNormPay(), "\n");
           s += String.format("%-10s %10.2f %s", "Overtime Pay:", this.getOtPay(), "\n");
         return s;
-    }
+    } // end getClosingMessage
     
     //*** Setters ***
     
@@ -201,22 +195,17 @@ public class Emp {
     ****************************************/
     public void setHours(int x){
         hours = x;
-    }
+    } // end setHours
     
     /*****************************************
     * Description:  Set wage
     * 
     * Interface:
     * 
-    * 
-    *
     * @param    x int: update for wage 
     ****************************************/
     public void setWage(double x){
         wage = x;
-    }
-
-    
-        
+    } // end setWage
     
 } // end of public class
