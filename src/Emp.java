@@ -20,7 +20,7 @@ public class Emp {
     //*** Instance Variables ***    
      
         private int id = 0;
-        private double hours = 0;
+        private int hours = 0;
         private double wage = 0;
         
         
@@ -90,7 +90,7 @@ public class Emp {
     *
     * @return       Hours: double
     * ****************************************/
-    public double getHours(){
+    public int getHours(){
         return this.hours;
     }
     /*****************************************
@@ -133,6 +133,63 @@ public class Emp {
             return (this.hours - 40) *  wage * 1.5;
         }
     }
+        /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       s: string, banner for output
+    * ****************************************/
+    public static String getBanner(){
+        String bnr = "";
+        String nl = System.lineSeparator();
+        
+        bnr = "*******************************************" + nl;
+        bnr += "Name:		Ayub" + nl;
+        bnr += "Class:		CS30S" + nl;
+        bnr += "Assignment:	unk" + nl;
+        bnr += "*******************************************" + nl;
+        
+        return bnr;
+    } // end 
+   
+    /*****************************************
+    * Description: print banner information to the console window
+    * 
+    * Interface:
+    * 
+    * 
+    * @return       cls: string, closing message 
+    * ****************************************/
+    public static String getClosingMessage(){
+        String cls = "";
+        
+        cls = "end of proccesing";
+        
+        return cls;
+    }
+    
+    /*****************************************
+    * Description:  Set wage
+    * 
+    * Interface:
+    * 
+    * 
+    *
+    * @param    x int: update for wage 
+    ****************************************/
+    public String toString(){
+        String s = "";
+        
+        s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
+          s += String.format("%-10s %10d %s", "Hours:", this.getHours(),  "\n");
+          s += String.format("%-10s %10.2f %s", "Wage:", this.getWage(), "\n");
+          s += String.format("%-10s %10.2f %s", "Gross Pay:", this.getGrossPay(), "\n");
+          s += String.format("%-10s %10.2f %s", "Normal Pay:", this.getNormPay(), "\n");
+          s += String.format("%-10s %10.2f %s", "Overtime Pay:", this.getOtPay(), "\n");
+        return s;
+    }
+    
     //*** Setters ***
     
     /*****************************************
@@ -155,8 +212,11 @@ public class Emp {
     *
     * @param    x int: update for wage 
     ****************************************/
-    public void setWage(int x){
+    public void setWage(double x){
         wage = x;
-    } 
+    }
+
+    
+        
     
 } // end of public class
