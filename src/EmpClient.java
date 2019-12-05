@@ -35,81 +35,52 @@ public class EmpClient {  // begin class
         String nl = System.lineSeparator();
         // new line character for file writing
         
-        double wage = 0.0;
-        int hours = 0;
-    	int actualSize = 0;
+    	int actualSize = 0;                 // variable used for increament of array
     // ***** create objects *******
-    
-        //DecimalFormat df1 = new DecimalFormat("##.###");
-    
-    // the ProgramInfo class has both a default and initialized constructor
-    // so you can choose which model you want to employ
-    
-        //ProgramInfo programInfo = new ProgramInfo();
-        //ProgramInfo programInfo = new ProgramInfo("assignment name");
         
         BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
-        //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
         
-        Emp emp1 = new Emp(hours, wage);
+        Emp emp1 = new Emp();
         Emp emp2[] = new Emp[MAX];
     	
     // ********** Print output Banner **********
 
-        //System.out.println(programInfo.getBanner("A1Q2"));
-        //fout.println(programInfo.getBanner("A1Q2"));
 
-        //System.out.println(programInfo.getBanner());
-        //fout.println(programInfo.getBanner());
+        System.out.println(Emp.getBanner());
 	    	
     // ************************ get input **********************
-/* input will now come from an external file so there
-        will not normally be a need for a prompt
-    
-        prompt = "Enter your prompt text here. \n";	
-        prompt += "you may need to add additional lines\n";
-        prompt += "or delete some of these prompt lines.\n\n";
 
-        strin = JOptionPane.showInputDialog(bannerOut + prompt);	 
-*/
-        // read a line of data from the external text file
-        
-        
-        
         strin = fin.readLine();
      
             while(strin != null){  
                 //System.out.println(strin);
+                
                 tokens = strin.split(delim);
-                hours = Integer.parseInt(tokens[0]);
-                wage = Double.parseDouble(tokens[1]);                                 
+                                     
+                emp2[actualSize] = new Emp(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));        // setting wage and hours for employees in array
                 
-                emp2[actualSize] = new Emp(hours, wage);
-                
-                actualSize++;
+                actualSize++;                                   // increasment of array
                 
                 strin = fin.readLine();                         // loop update
-                
             } // loop to get input and put into a list
-            for(int i = 0; i < 6; i++){
-                System.out.println(emp2[i].toString());   
-            }
     // ************************ processing ***************************
         
-
+            emp1.setHours(5);
+            emp1.setWage(2);
 
     // ************************ print output ****************************
     
-    
+        System.out.println(emp1.toString());
+        for(int i = 0; i < 6; i++){
+            System.out.println(emp2[i].toString() + nl + nl);   
+        }
     // ******** closing message *********
         
         System.out.println(Emp.getClosingMessage());
-        //fout.println(Emp.getClosingMessage());
         
     // ***** close streams *****
         
         fin.close();                // close input buffer stream
-        //fout.close();               // close output stream
         
     }  // end main
 }  // end class
