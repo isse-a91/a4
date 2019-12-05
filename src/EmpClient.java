@@ -91,7 +91,9 @@ public class EmpClient {  // begin class
                 strin = fin.readLine();                         // loop update
                 
             } // loop to get input and put into a list
-            
+            for(int i = 0; i < 6; i++){
+                System.out.println(emp2[i].toString());   
+            }
     // ************************ processing ***************************
         
 
