@@ -2,16 +2,13 @@
  * Programmer:	Ayub Isse
  * Class:  CS30S
  *
- * Assignment: December Exam
- * Program Name:  PayRollClient
+ * Assignment:  December Exam
  *
- * Description: brief description of program
+ * Description: Get and output employee properties from Emp class code
  ***********************************************************************/
  
  // import java libraries here as needed
  
- import javax.swing.*;
- //import java.text.DecimalFormat;
  import java.io.*;
 
 public class EmpClient {  // begin class
@@ -20,7 +17,9 @@ public class EmpClient {  // begin class
     
     // ********* declaration of constants **********
         
-        final int MAX = 10;
+        final int MAX = 10;                 // constant for max array size
+        final int ARRAYSIZE = 6;            // constant for array size  
+        
     // ********** declaration of variables **********
 
         String strin;		// string data input from keyboard
@@ -71,7 +70,7 @@ public class EmpClient {  // begin class
     // ************************ print output ****************************
     
         System.out.println(emp1.toString());
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < ARRAYSIZE; i++){
             System.out.println(emp2[i].toString() + nl + nl);   
         }
     // ******** closing message *********
