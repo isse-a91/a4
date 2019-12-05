@@ -20,7 +20,7 @@ public class EmpClient {  // begin class
     
     // ********* declaration of constants **********
         
-        final int MAX = 12;
+        final int MAX = 10;
     // ********** declaration of variables **********
 
         String strin;		// string data input from keyboard
@@ -35,8 +35,9 @@ public class EmpClient {  // begin class
         String nl = System.lineSeparator();
         // new line character for file writing
         
-        double[] list = new double [MAX];
-    	
+        double wage = 0.0;
+        int hours = 0;
+    	int actualSize = 0;
     // ***** create objects *******
     
         //DecimalFormat df1 = new DecimalFormat("##.###");
@@ -47,10 +48,11 @@ public class EmpClient {  // begin class
         //ProgramInfo programInfo = new ProgramInfo();
         //ProgramInfo programInfo = new ProgramInfo("assignment name");
         
-        //BufferedReader fin = new BufferedReader(new FileReader("demo1Data.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
         
-        Emp emp1 = new Emp();
+        Emp emp1 = new Emp(hours, wage);
+        Emp emp2[] = new Emp[MAX];
     	
     // ********** Print output Banner **********
 
@@ -72,10 +74,24 @@ public class EmpClient {  // begin class
 */
         // read a line of data from the external text file
         
-        for(int i = 0; i < MAX; i++){
-            list[i] = emp1.getData;
-        }
-
+        
+        
+        strin = fin.readLine();
+     
+            while(strin != null){  
+                //System.out.println(strin);
+                tokens = strin.split(delim);
+                hours = Integer.parseInt(tokens[0]);
+                wage = Double.parseDouble(tokens[1]);                                 
+                
+                emp2[actualSize] = new Emp(hours, wage);
+                
+                actualSize++;
+                
+                strin = fin.readLine();                         // loop update
+                
+            } // loop to get input and put into a list
+            
     // ************************ processing ***************************
         
 
@@ -85,12 +101,12 @@ public class EmpClient {  // begin class
     
     // ******** closing message *********
         
-        //System.out.println(programInfo.getClosingMessage());
-        //fout.println(programInfo.getClosingMessage());
+        System.out.println(Emp.getClosingMessage());
+        //fout.println(Emp.getClosingMessage());
         
     // ***** close streams *****
         
-        //fin.close();                // close input buffer stream
+        fin.close();                // close input buffer stream
         //fout.close();               // close output stream
         
     }  // end main
