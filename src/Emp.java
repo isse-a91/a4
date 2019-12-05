@@ -4,7 +4,7 @@
  *
  * Assignment: December Exam
  *
- * Description: Calculates properties of an employee
+ * Description: Class to calculate properties of an employee
  ***********************************************************************/
 
 // import libraries as needed here
@@ -14,31 +14,18 @@ public class Emp {
         public static int nextID = 1000;
     //*** Instance Variables ***    
      
-        private int id = 0;
-        private int hours = 0;
-        private double wage = 0;
-        
-        
-        
+        private int id = 0;                 // variable for id of employees
+        private int hours = 0;              // variable for hours of employees
+        private double wage = 0;            // variable for wage of employees
+ 
     //*** Constructors ***
-    
-    /*****************************************
-    * Description: brief description of the methods purpose
-    * 
-    * Interface:
-    * 
-    * @param        each parameter of the method should be listed with an @param
-    * @param        parametername description of parameter
-    * 
-    * @return       any return value will be noted here
-    * ****************************************/
 
     /*****************************************
     * Description: Default constructor for employee
     * 
     * ****************************************/
     public Emp(){
-        id = nextID++;
+        id = nextID++;              // set custom id
     } // end Default constructor
     /*****************************************
     * Description: Initialized Constructor
@@ -49,13 +36,10 @@ public class Emp {
     * @param        w double: wage
     * ****************************************/
     public Emp(int h, double w){
-        id = nextID++;
-        hours = h;
-        wage = w;
+        id = nextID++;              // set custom id
+        hours = h;                  // set hours
+        wage = w;                   // set wage
     } // end Initialized Constructor 
-           
-    
-    
     
     //*** Getters ***
     /*****************************************
@@ -134,10 +118,10 @@ public class Emp {
     * 
     * Interface:
     * 
-    * @return       s: string, banner for output
+    * @return       bnr: string, banner for output
     * ****************************************/
     public static String getBanner(){
-        String bnr = "";
+        String bnr = "";                    // banner
         String nl = System.lineSeparator();
         
         bnr = "*******************************************" + nl;
@@ -194,7 +178,7 @@ public class Emp {
     * @param    x int: update for hours
     ****************************************/
     public void setHours(int x){
-        hours = x;
+        hours = x;                  // update hours
     } // end setHours
     
     /*****************************************
@@ -205,7 +189,7 @@ public class Emp {
     * @param    x int: update for wage 
     ****************************************/
     public void setWage(double x){
-        wage = x;
+        wage = x;                   // update wage
     } // end setWage
     
 } // end of public class
