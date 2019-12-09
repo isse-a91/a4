@@ -90,11 +90,12 @@ public class Emp {
     * @return       normal pay: double
     * ****************************************/
     public double getNormPay(){
-        if(hours <= 40){
+        final int BaseHours = 40;
+        if(hours <= BaseHours){
             return this.hours * wage;
         }
         else{
-            return 40 * wage;
+            return BaseHours * wage;
         }
     } // end getNormPay
     /*****************************************
@@ -105,11 +106,12 @@ public class Emp {
     * @return       overtime pay: double
     * ****************************************/
     public double getOtPay(){
+        final double OvertimeIncreament = 1.5;
         if(hours <= 40){
             return 0;
         }
         else{
-            return (this.hours - 40) *  wage * 1.5;
+            return (this.hours - 40) *  wage * OvertimeIncreament;
         }
     } // end getOtPay
     
@@ -127,7 +129,7 @@ public class Emp {
         bnr = "*******************************************" + nl;
         bnr += "Name:		Ayub" + nl;
         bnr += "Class:		CS30S" + nl;
-        bnr += "Assignment:	Exam" + nl;
+        bnr += "Assignment:	December Exam" + nl;
         bnr += "*******************************************" + nl;
         
         return bnr;

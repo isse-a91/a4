@@ -39,8 +39,9 @@ public class EmpClient {  // begin class
         
         BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
         
-        Emp emp1 = new Emp();
-        Emp emp2[] = new Emp[MAX];
+        Emp emp1 = new Emp();               // Employee object for default constructor
+        Emp emp2[] = new Emp[MAX];          // Employee object for object array
+        Emp emp3 = new Emp(9, 15);          // Employee object for intilized constructor, first is hours, second is wage
     	
     // ********** Print output Banner **********
 
@@ -51,17 +52,17 @@ public class EmpClient {  // begin class
 
         strin = fin.readLine();
      
-            while(strin != null){  
-                //System.out.println(strin);
-                
-                tokens = strin.split(delim);
-                                     
-                emp2[actualSize] = new Emp(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));        // setting wage and hours for employees in array
-                
-                actualSize++;                                   // increasment of array
-                
-                strin = fin.readLine();                         // loop update
-            } // loop to get input and put into a list
+        while(strin != null){  
+            //System.out.println(strin);
+
+            tokens = strin.split(delim);
+
+            emp2[actualSize] = new Emp(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));        // setting wage and hours for employees in array
+
+            actualSize++;                                   // increasment of array
+
+            strin = fin.readLine();                         // loop update
+        } // end of while loop to get input and put into a list
     // ************************ processing ***************************
         
             emp1.setHours(5);
