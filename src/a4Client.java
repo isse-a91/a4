@@ -11,14 +11,11 @@
  
  import java.io.*;
 
-public class EmpClient {  // begin class
+public class a4Client {  // begin class
     
     public static void main(String[] args)throws IOException {  // begin main
     
-    // ********* declaration of constants **********
-        
-        final int MAX = 10;                 // constant for max array size
-        final int ARRAYSIZE = 6;            // constant for array size  
+    // ********* declaration of constants ********** 
         
     // ********** declaration of variables **********
 
@@ -34,49 +31,25 @@ public class EmpClient {  // begin class
         String nl = System.lineSeparator();
         // new line character for file writing
         
-    	int actualSize = 0;                 // variable used for increament of array
     // ***** create objects *******
         
         BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
         
-        Emp emp1 = new Emp();               // Employee object for default constructor
-        Emp emp2[] = new Emp[MAX];          // Employee object for object array
-        Emp emp3 = new Emp(9, 15);          // Employee object for intilized constructor, first is hours, second is wage
     	
     // ********** Print output Banner **********
 
 
-        System.out.println(Emp.getBanner());
+        System.out.println(a4.getBanner());
 	    	
     // ************************ get input **********************
 
-        strin = fin.readLine();
-     
-        while(strin != null){  
-            //System.out.println(strin);
-
-            tokens = strin.split(delim);
-
-            emp2[actualSize] = new Emp(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));        // setting wage and hours for employees in array
-
-            actualSize++;                                   // increasment of array
-
-            strin = fin.readLine();                         // loop update
-        } // end of while loop to get input and put into a list
     // ************************ processing ***************************
-        
-            emp1.setHours(5);
-            emp1.setWage(2);
 
     // ************************ print output ****************************
-    
-        System.out.println(emp1.toString());
-        for(int i = 0; i < ARRAYSIZE; i++){
-            System.out.println(emp2[i].toString() + nl + nl);   
-        }
+
     // ******** closing message *********
         
-        System.out.println(Emp.getClosingMessage());
+        System.out.println(a4.getClosingMessage());
         
     // ***** close streams *****
         

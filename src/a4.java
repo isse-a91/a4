@@ -9,14 +9,12 @@
 
 // import libraries as needed here
 
-public class Emp {
+public class a4 {
     //*** Class Variables ***
         public static int nextID = 1000;
     //*** Instance Variables ***    
      
         private int id = 0;                 // variable for id of employees
-        private int hours = 0;              // variable for hours of employees
-        private double wage = 0;            // variable for wage of employees
  
     //*** Constructors ***
 
@@ -24,7 +22,7 @@ public class Emp {
     * Description: Default constructor for employee
     * 
     * ****************************************/
-    public Emp(){
+    public a4(){
         id = nextID++;              // set custom id
     } // end Default constructor
     /*****************************************
@@ -35,85 +33,11 @@ public class Emp {
     * @param        h int: hours
     * @param        w double: wage
     * ****************************************/
-    public Emp(int h, double w){
+    public a4(int h, double w){
         id = nextID++;              // set custom id
-        hours = h;                  // set hours
-        wage = w;                   // set wage
     } // end Initialized Constructor 
     
     //*** Getters ***
-    /*****************************************
-    * Description: Gets employee id
-    * 
-    * Interface:
-    * 
-    * @return       id: int
-    * ****************************************/
-    public int getId(){
-        return this.id;
-    } // end getId
-    /*****************************************
-    * Description: Gets wage
-    * 
-    * Interface:
-    * 
-    * @return       Wage: double
-    * ****************************************/
-    public double getWage(){
-        return this.wage;
-    } // getWage
-    /*****************************************
-    * Description: Gets hours
-    * 
-    * Interface:
-    *
-    * @return       Hours: double
-    * ****************************************/
-    public int getHours(){
-        return this.hours;
-    } // end getHours
-    /*****************************************
-    * Description: Get grosspay
-    * 
-    * Interface:
-    * 
-    * @return       Gross Pay: double
-    * ****************************************/
-    public double getGrossPay(){
-        return this.hours * wage;
-    } // end getGrossPay
-    /*****************************************
-    * Description: Gets pay without overtime
-    * 
-    * Interface:
-    * 
-    * @return       normal pay: double
-    * ****************************************/
-    public double getNormPay(){
-        final int BaseHours = 40;
-        if(hours <= BaseHours){
-            return this.hours * wage;
-        }
-        else{
-            return BaseHours * wage;
-        }
-    } // end getNormPay
-    /*****************************************
-    * Description: Gets overtime pay only
-    * 
-    * Interface:
-    * 
-    * @return       overtime pay: double
-    * ****************************************/
-    public double getOtPay(){
-        final double OvertimeIncreament = 1.5;
-        if(hours <= 40){
-            return 0;
-        }
-        else{
-            return (this.hours - 40) *  wage * OvertimeIncreament;
-        }
-    } // end getOtPay
     
     /*****************************************
     * Description: create a banner string
@@ -171,27 +95,5 @@ public class Emp {
     } // end getClosingMessage
     
     //*** Setters ***
-    
-    /*****************************************
-    * Description: Set hours
-    * 
-    * Interface: 
-    * 
-    * @param    x int: update for hours
-    ****************************************/
-    public void setHours(int x){
-        hours = x;                  // update hours
-    } // end setHours
-    
-    /*****************************************
-    * Description:  Set wage
-    * 
-    * Interface:
-    * 
-    * @param    x int: update for wage 
-    ****************************************/
-    public void setWage(double x){
-        wage = x;                   // update wage
-    } // end setWage
     
 } // end of public class
