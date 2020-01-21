@@ -9,7 +9,8 @@
  
  // import java libraries here as needed
  
- import java.io.*;
+import java.io.*;
+import java.util.ArrayList;
 
 public class a4Client {  // begin class
     
@@ -33,23 +34,34 @@ public class a4Client {  // begin class
         
     // ***** create objects *******
         
-        BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("skrt.txt"));
         
-    	
+    	ArrayList<Sktr> skrrt = new ArrayList<Sktr> (9);
+        
+        //Sktr sktr = new Sktr();
+        
     // ********** Print output Banner **********
 
-
-        System.out.println(a4.getBanner());
+        System.out.println(Sktr.getBanner());
 	    	
     // ************************ get input **********************
-
+        strin = fin.readLine();
+     
+        while(strin != null){
+            tokens = strin.split(delim);
+            skrrt.add(new Sktr(tokens));    
+ 
+            strin = fin.readLine();                         // loop update
+        } // end of while loop to get input and put into a list
+        
     // ************************ processing ***************************
 
+        //System.out.println(sktr.getTime());
     // ************************ print output ****************************
 
     // ******** closing message *********
         
-        System.out.println(a4.getClosingMessage());
+        System.out.println(Sktr.getClosingMessage());
         
     // ***** close streams *****
         

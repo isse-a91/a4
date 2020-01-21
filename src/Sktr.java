@@ -8,21 +8,23 @@
  ***********************************************************************/
 
 // import libraries as needed here
+import java.util.ArrayList;
 
-public class a4 {
+public class Sktr {
     //*** Class Variables ***
         public static int nextID = 1000;
     //*** Instance Variables ***    
      
         private int id = 0;                 // variable for id of employees
  
+        ArrayList<Time> time = new ArrayList();
     //*** Constructors ***
 
     /*****************************************
     * Description: Default constructor for employee
     * 
     * ****************************************/
-    public a4(){
+    public Sktr(){
         id = nextID++;              // set custom id
     } // end Default constructor
     /*****************************************
@@ -30,15 +32,45 @@ public class a4 {
     * 
     * Interface:
     * 
-    * @param        h int: hours
-    * @param        w double: wage
     * ****************************************/
-    public a4(int h, double w){
+    public Sktr(String[] t){
         id = nextID++;              // set custom id
+        int x = 0;
+        int y = 0;
+        
+        for(int i = 0; i < t.length; i += 2){              
+            x = Integer.parseInt(t[i]);
+            y = Integer.parseInt(t[i + 1]);
+            time.add(new Time(x, y));
+        } // end for
     } // end Initialized Constructor 
+
     
     //*** Getters ***
-    
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public ArrayList getTime(){
+        return this.time;
+    } // end getBanner
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public int getAvg(){
+        int avg;
+        for(int i = 0; i < 4; i++){
+            time.getMin();
+        }
+            return 0;
+    } // end getBanner
     /*****************************************
     * Description: create a banner string
     * 
@@ -53,7 +85,7 @@ public class a4 {
         bnr = "*******************************************" + nl;
         bnr += "Name:		Ayub" + nl;
         bnr += "Class:		CS30S" + nl;
-        bnr += "Assignment:	December Exam" + nl;
+        bnr += "Assignment:	A4" + nl;
         bnr += "*******************************************" + nl;
         
         return bnr;
@@ -74,7 +106,7 @@ public class a4 {
         
         return cls;
     } // end getClosingMessage
-    
+
     /*****************************************
     * Description:  create and return output 
     * 
@@ -82,7 +114,7 @@ public class a4 {
     * 
     * @return    s string: holds and returns output
     ****************************************/
-    public String toString(){
+    /*public String toString(){
         String s = "";
         
         s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
@@ -92,8 +124,9 @@ public class a4 {
           s += String.format("%-10s %10.2f %s", "Normal Pay:", this.getNormPay(), "\n");
           s += String.format("%-10s %10.2f %s", "Overtime Pay:", this.getOtPay(), "\n");
         return s;
-    } // end getClosingMessage
+    } // end getClosingMessage*/
     
     //*** Setters ***
+    
     
 } // end of public class
