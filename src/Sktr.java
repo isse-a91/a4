@@ -17,7 +17,8 @@ public class Sktr {
      
         private int id = 0;                 // variable for id of employees
  
-        ArrayList<Time> time = new ArrayList();
+        ArrayList<Time> time = new ArrayList<Time>(9);
+       
     //*** Constructors ***
 
     /*****************************************
@@ -38,15 +39,25 @@ public class Sktr {
         int x = 0;
         int y = 0;
         
-        for(int i = 0; i < t.length; i += 2){              
+        for(int i = 0; i < t.length; i += 2){     
+            int actualSize = 0;
             x = Integer.parseInt(t[i]);
             y = Integer.parseInt(t[i + 1]);
             time.add(new Time(x, y));
         } // end for
     } // end Initialized Constructor 
 
-    
     //*** Getters ***
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public int getId(){
+        return this.id;
+    } // end getBanner
     /*****************************************
     * Description: create a banner string
     * 
@@ -64,13 +75,63 @@ public class Sktr {
     * 
     * @return       bnr: string, banner for output
     * ****************************************/ 
-    public int getAvg(){
-        int avg;
-        for(int i = 0; i < 4; i++){
-            time.getMin();
+    public int getAvgMins(){
+        int avg=0;
+        for(int i = 0; i < time.size(); i++){
+            avg += ((time.get(i).getMin() * 60) + time.get(i).getSec());
         }
-            return 0;
+        return avg/60/time.size();
     } // end getBanner
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public int getAvgSecs(){
+        int avg = 0;
+        for(int i = 0; i < time.size(); i++){
+            avg += time.get(i).getMin() * 60;
+            avg += time.get(i).getSec();
+        }
+        avg = avg/this.getAvgMins();
+        return avg%60;
+    } // end getBanner 
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public int getAvgSpeed(){
+        int t = 0;
+        for(int i = 0; i < time.size(); i++){
+            t += time.get(i).getMin() * 60;
+            t += time.get(i).getSec();
+        }
+        t = t*3600;
+        return 5/t/time.size();
+    } // end getBanner 
+    /*****************************************
+    * Description: create a banner string
+    * 
+    * Interface:
+    * 
+    * @return       bnr: string, banner for output
+    * ****************************************/ 
+    public int getSpeed(){
+        int t = 0;
+        final double d = 5.0;
+        
+        double speed = 0;
+        int 
+        t = t*3600;
+        return 5/t/time.size();
+    } // end getBanner
+
+    
     /*****************************************
     * Description: create a banner string
     * 
@@ -114,19 +175,36 @@ public class Sktr {
     * 
     * @return    s string: holds and returns output
     ****************************************/
-    /*public String toString(){
+    @Override
+    public String toString(){
         String s = "";
         
         s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
-          s += String.format("%-10s %10d %s", "Hours:", this.getHours(),  "\n");
-          s += String.format("%-10s %10.2f %s", "Wage:", this.getWage(), "\n");
-          s += String.format("%-10s %10.2f %s", "Gross Pay:", this.getGrossPay(), "\n");
-          s += String.format("%-10s %10.2f %s", "Normal Pay:", this.getNormPay(), "\n");
-          s += String.format("%-10s %10.2f %s", "Overtime Pay:", this.getOtPay(), "\n");
+        s += String.format("%-10s %s", "Race Times","\n");
+        for(int i = 0; i < time.size(); i++){
+          s += String.format("%1d %-1s %-1d %s", time.get(i).getMin(), ":", time.get(i).getSec(),  "\n");
+        }
+        s += String.format("%5s %5d %-5s %-5d %s", "Average Time: ", this.getAvgMins(), ":", this.getAvgSecs(),  "\n");
+        s += String.format("%5s %5d %-5s %s", "Average Speed: ", this.getAvgMins(), "km/hour", "\n");
+        
         return s;
-    } // end getClosingMessage*/
+    } // end getClosingMessage
     
     //*** Setters ***
     
+    public void setTime(int x, int y){
+        if(time.size() == 3){
+            for(int i = 0; i < time.size()-1; i++){
+                time.get(i).setMin(time.get(i+1).getMin());
+                time.get(i).setSec(time.get(i+1).getSec());
+            }
+            time.get(time.size()-1).setMin(x);
+            time.get(time.size()-1).setSec(y);
+        }
+        else{
+            time.get(time.size()).setMin(x);
+            time.get(time.size()).setSec(y);
+        }
+    }
     
 } // end of public class

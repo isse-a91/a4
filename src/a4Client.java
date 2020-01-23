@@ -32,6 +32,8 @@ public class a4Client {  // begin class
         String nl = System.lineSeparator();
         // new line character for file writing
         
+        int actualsize = 0;
+        
     // ***** create objects *******
         
         BufferedReader fin = new BufferedReader(new FileReader("skrt.txt"));
@@ -50,13 +52,19 @@ public class a4Client {  // begin class
         while(strin != null){
             tokens = strin.split(delim);
             skrrt.add(new Sktr(tokens));    
- 
+                
+            //System.out.println(skrrt);
             strin = fin.readLine();                         // loop update
         } // end of while loop to get input and put into a list
         
     // ************************ processing ***************************
-
-        //System.out.println(sktr.getTime());
+        for(int i = 0; i < skrrt.size(); i++){
+            System.out.println(skrrt.get(i).toString());
+        }
+        skrrt.get(0).setTime(5, 55);
+        for(int i = 0; i < skrrt.size(); i++){
+        System.out.println(skrrt.get(i).toString());
+        }
     // ************************ print output ****************************
 
     // ******** closing message *********

@@ -31,7 +31,7 @@ public class Time {
      * @param y
      * @param x 
      ****************************************/
-    public Time(int y, int x) {
+    public Time(int x, int y) {
         this.sec = y;
         this.min = x;
     } // end Initialized Constructor
@@ -58,6 +58,7 @@ public class Time {
     public int getMin() {
         return min;
     } 
+    
 
     @Override
     public String toString() {
@@ -74,8 +75,8 @@ public class Time {
      *
      * @param sec 
      ****************************************/
-    public void setSec(int sec) {
-        this.sec = sec;
+    public void setSec(int secs ) {
+        this.sec = secs;
     }
     /*****************************************
      * Description: Initialized Constructor
@@ -85,7 +86,7 @@ public class Time {
      *
      * @param min 
      ****************************************/
-    public void setMin(int min) {
-        this.min = min;
+    public void setMin(int mins) {
+        this.min = mins;
     }
 } // end of public class
