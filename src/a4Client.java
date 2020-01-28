@@ -2,9 +2,9 @@
  * Programmer:	Ayub Isse
  * Class:  CS30S
  *
- * Assignment:  December Exam
+ * Assignment: a4
  *
- * Description: Get and output employee properties from Emp class code
+ * Description: client code to load data file and output properties
  ***********************************************************************/
  
  // import java libraries here as needed
@@ -32,11 +32,9 @@ public class a4Client {  // begin class
         String nl = System.lineSeparator();
         // new line character for file writing
         
-        int actualsize = 0;
-        
     // ***** create objects *******
         
-        BufferedReader fin = new BufferedReader(new FileReader("skrt.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("skaterData.txt"));
         
     	ArrayList<Sktr> skrrt = new ArrayList<Sktr> (9);
         

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  *
  * Assignment: a4
  *
- * Description: Class to calculate properties of an employee
+ * Description: Sub-class to hold skater time
  ***********************************************************************/
 
 // import libraries as needed here
@@ -39,21 +39,21 @@ public class Time {
     
     //*** Getters ***
     /*****************************************
-     * Description: Initialized Constructor
+     * Description: return seconds
      *
      * Interface:
      *
-     * @return 
+     * @return sec: int seconds
      * ****************************************/
     public int getSec() {
         return sec;
     }
     /*****************************************
-     * Description: Initialized Constructor
+     * Description: return mins
      *
      * Interface:
      * 
-     * @return  
+     * @return min: int minutes
      ****************************************/
     public int getMin() {
         return min;
@@ -69,22 +69,22 @@ public class Time {
     
     //*** Setters ***
     /*****************************************
-     * Description: Initialized Constructor
+     * Description: Update secs of skater
      *
      * Interface:
      *
-     * @param sec 
+     * @param   sec: int seconds 
      ****************************************/
     public void setSec(int secs ) {
         this.sec = secs;
     }
     /*****************************************
-     * Description: Initialized Constructor
+     * Description: update mins of skater
      *
      * Interface:
      *
      *
-     * @param min 
+     * @param   min: int minutes
      ****************************************/
     public void setMin(int mins) {
         this.min = mins;

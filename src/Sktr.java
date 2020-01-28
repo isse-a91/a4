@@ -2,9 +2,9 @@
  * Programmer:	Ayub Isse
  * Class:  CS30S
  *
- * Assignment: December Exam
+ * Assignment: a4
  *
- * Description: Class to calculate properties of an employee
+ * Description: Class to calculate properties of a skater
  ***********************************************************************/
 
 // import libraries as needed here
@@ -17,19 +17,19 @@ public class Sktr {
      
         private int id = 0;                 // variable for id of employees
  
-        ArrayList<Time> time = new ArrayList<Time>(9);
+        ArrayList<Time> time = new ArrayList<Time>(9); //arraylist for times
        
     //*** Constructors ***
 
     /*****************************************
-    * Description: Default constructor for employee
+    * Description: Default constructor for skater
     * 
     * ****************************************/
     public Sktr(){
         id = nextID++;              // set custom id
     } // end Default constructor
     /*****************************************
-    * Description: Initialized Constructor
+    * Description: Initialized Constructor for skater which loads data into arraylist which loads data into data class
     * 
     * Interface:
     * 
@@ -49,24 +49,13 @@ public class Sktr {
 
     //*** Getters ***
     /*****************************************
-    * Description: create a banner string
+    * Description: return id
     * 
     * Interface:
     * 
-    * @return       bnr: string, banner for output
     * ****************************************/ 
     public int getId(){
         return this.id;
-    } // end getBanner
-    /*****************************************
-    * Description: create a banner string
-    * 
-    * Interface:
-    * 
-    * @return       bnr: string, banner for output
-    * ****************************************/ 
-    public ArrayList getTime(){
-        return this.time;
     } // end getBanner
     /*****************************************
     * Description: create a banner string
@@ -99,25 +88,26 @@ public class Sktr {
         return avg%60;
     } // end getBanner 
     /*****************************************
-    * Description: create a banner string
+    * Description: get individual speed
     * 
     * Interface:
     * 
-    * @return       bnr: string, banner for output
+    * @param        i: int, number that tells which time to access in array
+    * @return       speed: double, speed in km/hr
     * ****************************************/ 
     public double getSpeed(int i){
-        double speed = 0.0;
+        double speed;
         
         speed = 5.0 / (time.get(i).getMin()*60 + (time.get(i).getSec()));
        
         return speed*3600;
     } // end getBanner
     /*****************************************
-    * Description: create a banner string
+    * Description: get avg speed using individual speed
     * 
     * Interface:
     * 
-    * @return       bnr: string, banner for output
+    * @return       speed: double: avg speed
     * ****************************************/ 
     public double getAvgSpeed(){
         double speed = 0.0;
@@ -130,7 +120,7 @@ public class Sktr {
 
     
     /*****************************************
-    * Description: create a banner string
+    * Description: get banner
     * 
     * Interface:
     * 
@@ -179,16 +169,25 @@ public class Sktr {
         s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
         s += String.format("%-10s %s", "Race Times and Speed","\n");
         for(int i = 0; i < time.size(); i++){
-          s += String.format("%1d %-1s %-1d %10s %-1f %-1s %s", time.get(i).getMin(), ":", time.get(i).getSec(), "Race Speed", getSpeed(i),"km/s","\n");
+          s += String.format("%1d %-1s %-1d %10s %-1f %-1s %s", time.get(i).getMin(), ":", time.get(i).getSec(), "Race Speed", getSpeed(i),"km/hr","\n");
         }
         s += String.format("%5s %5d %-5s %-5d %s", "Average Time: ", this.getAvgMins(), ":", this.getAvgSecs(),  "\n");
-        s += String.format("%5s %5f %-5s %s", "Average Speed: ", this.getAvgSpeed(), "km/s", "\n");
+        s += String.format("%5s %5f %-5s %s", "Average Speed: ", this.getAvgSpeed(), "km/hr", "\n");
         
         return s;
     } // end getClosingMessage
     
     //*** Setters ***
-    
+    /*****************************************
+    * Description:  Update minutes seconds deleting the 1st number, 
+    *               moving everything down then putting new number 9th position
+    * 
+    * Interface:
+    * 
+    * @param     x int: mins
+    * @param     y int: seconds
+    * @return    s string: holds and returns output
+    ****************************************/
     public void setTime(int x, int y){
 
         for(int i = 0; i < time.size()-1; i++){
