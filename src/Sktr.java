@@ -105,15 +105,13 @@ public class Sktr {
     * 
     * @return       bnr: string, banner for output
     * ****************************************/ 
-    public int getAvgSpeed(){
-        int t = 0;
-        for(int i = 0; i < time.size(); i++){
-            t += time.get(i).getMin() * 60;
-            t += time.get(i).getSec();
-        }
-        t = t*3600;
-        return 5/t/time.size();
-    } // end getBanner 
+    public double getSpeed(int i){
+        double speed = 0.0;
+        
+        speed = 5.0 / (time.get(i).getMin()*60 + (time.get(i).getSec()));
+       
+        return speed*3600;
+    } // end getBanner
     /*****************************************
     * Description: create a banner string
     * 
@@ -121,15 +119,14 @@ public class Sktr {
     * 
     * @return       bnr: string, banner for output
     * ****************************************/ 
-    public int getSpeed(){
-        int t = 0;
-        final double d = 5.0;
-        
-        double speed = 0;
-        int 
-        t = t*3600;
-        return 5/t/time.size();
-    } // end getBanner
+    public double getAvgSpeed(){
+        double speed = 0.0;
+        for(int i = 0; i < time.size(); i++){
+            speed += getSpeed(i);
+        }
+
+        return speed/time.size();
+    } // end getBanner 
 
     
     /*****************************************
@@ -180,12 +177,12 @@ public class Sktr {
         String s = "";
         
         s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
-        s += String.format("%-10s %s", "Race Times","\n");
+        s += String.format("%-10s %s", "Race Times and Speed","\n");
         for(int i = 0; i < time.size(); i++){
-          s += String.format("%1d %-1s %-1d %s", time.get(i).getMin(), ":", time.get(i).getSec(),  "\n");
+          s += String.format("%1d %-1s %-1d %10s %-1f %-1s %s", time.get(i).getMin(), ":", time.get(i).getSec(), "Race Speed", getSpeed(i),"km/s","\n");
         }
         s += String.format("%5s %5d %-5s %-5d %s", "Average Time: ", this.getAvgMins(), ":", this.getAvgSecs(),  "\n");
-        s += String.format("%5s %5d %-5s %s", "Average Speed: ", this.getAvgMins(), "km/hour", "\n");
+        s += String.format("%5s %5f %-5s %s", "Average Speed: ", this.getAvgSpeed(), "km/s", "\n");
         
         return s;
     } // end getClosingMessage
@@ -193,18 +190,13 @@ public class Sktr {
     //*** Setters ***
     
     public void setTime(int x, int y){
-        if(time.size() == 3){
-            for(int i = 0; i < time.size()-1; i++){
-                time.get(i).setMin(time.get(i+1).getMin());
-                time.get(i).setSec(time.get(i+1).getSec());
-            }
-            time.get(time.size()-1).setMin(x);
-            time.get(time.size()-1).setSec(y);
+
+        for(int i = 0; i < time.size()-1; i++){
+            time.get(i).setMin(time.get(i+1).getMin());
+            time.get(i).setSec(time.get(i+1).getSec());
         }
-        else{
-            time.get(time.size()).setMin(x);
-            time.get(time.size()).setSec(y);
-        }
+        time.get(time.size()-1).setMin(x);
+        time.get(time.size()-1).setSec(y);
     }
     
 } // end of public class
