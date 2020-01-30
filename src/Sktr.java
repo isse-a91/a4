@@ -69,7 +69,9 @@ public class Sktr {
         for(int i = 0; i < time.size(); i++){
             avg += ((time.get(i).getMin() * 60) + time.get(i).getSec());
         }
-        return avg/60/time.size();
+        avg = avg / 60;
+        avg = avg / time.size();
+        return avg;
     } // end getBanner
     /*****************************************
     * Description: create a banner string
@@ -84,8 +86,9 @@ public class Sktr {
             avg += time.get(i).getMin() * 60;
             avg += time.get(i).getSec();
         }
-        avg = avg/this.getAvgMins();
-        return avg%60;
+        avg = avg/time.size();
+        avg = avg%60;
+        return avg;
     } // end getBanner 
     /*****************************************
     * Description: get individual speed
@@ -169,9 +172,9 @@ public class Sktr {
         s = String.format("%-10s %10d %s", "Id:", this.getId(),  "\n");
         s += String.format("%-10s %s", "Race Times and Speed","\n");
         for(int i = 0; i < time.size(); i++){
-          s += String.format("%1d %-1s %-1d %10s %-1f %-1s %s", time.get(i).getMin(), ":", time.get(i).getSec(), "Race Speed", getSpeed(i),"km/hr","\n");
+          s += String.format("%01d:%02d %-10s %-1f %-1s %s", time.get(i).getMin(), time.get(i).getSec(), "Race Speed", getSpeed(i),"km/hr","\n");
         }
-        s += String.format("%5s %5d %-5s %-5d %s", "Average Time: ", this.getAvgMins(), ":", this.getAvgSecs(),  "\n");
+        s += String.format("%5s %02d:%02d %s", "Average Time: ", this.getAvgMins(), this.getAvgSecs(),  "\n");
         s += String.format("%5s %5f %-5s %s", "Average Speed: ", this.getAvgSpeed(), "km/hr", "\n");
         
         return s;
