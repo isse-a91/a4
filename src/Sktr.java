@@ -58,6 +58,15 @@ public class Sktr {
         return this.id;
     } // end getBanner
     /*****************************************
+    * Description: return a time 
+    * 
+    * Interface:
+    * 
+    * ****************************************/ 
+    public String getTime(int i){
+        return this.time.get(i).toString();
+    } // end getBanner
+    /*****************************************
     * Description: create a banner string
     * 
     * Interface:
@@ -199,6 +208,7 @@ public class Sktr {
         }
         time.get(time.size()-1).setMin(x);
         time.get(time.size()-1).setSec(y);
+        System.out.println("Indivual time:  " + time.get(time.size()-1));
     }
     
 } // end of public class

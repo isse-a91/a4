@@ -11,6 +11,7 @@
  
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class a4Client {  // begin class
     
@@ -35,7 +36,7 @@ public class a4Client {  // begin class
     // ***** create objects *******
         
         BufferedReader fin = new BufferedReader(new FileReader("skaterData.txt"));
-        
+        Scanner scanner = new Scanner(System.in);
     	ArrayList<Sktr> skrrt = new ArrayList<Sktr> (9);
         
         //Sktr sktr = new Sktr();
@@ -54,8 +55,13 @@ public class a4Client {  // begin class
             //System.out.println(skrrt);
             strin = fin.readLine();                         // loop update
         } // end of while loop to get input and put into a list
+               
         
     // ************************ processing ***************************
+        
+        System.out.println(skrrt.get(1).getTime(6));    // print 5th time of 2nd skater
+    
+    // ************************ print output ****************************
         for(int i = 0; i < skrrt.size(); i++){
             System.out.println(skrrt.get(i).toString());
         }
@@ -63,8 +69,6 @@ public class a4Client {  // begin class
         for(int i = 0; i < skrrt.size(); i++){
         System.out.println(skrrt.get(i).toString());
         }
-    // ************************ print output ****************************
-
     // ******** closing message *********
         
         System.out.println(Sktr.getClosingMessage());

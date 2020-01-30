@@ -63,7 +63,7 @@ public class Time {
     @Override
     public String toString() {
         String st = "";
-        st = min + ":" + sec;
+        st = String.format("%02d:%02d", min, sec);
         return st;
     }
     
