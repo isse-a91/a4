@@ -37,13 +37,14 @@ public class a4Client {  // begin class
         
         BufferedReader fin = new BufferedReader(new FileReader("skaterData.txt"));
         Scanner scanner = new Scanner(System.in);
+        
     	ArrayList<Sktr> skrrt = new ArrayList<Sktr> (9);
         
-        //Sktr sktr = new Sktr();
+        ProgramInfo programInfo = new ProgramInfo("a4");
         
     // ********** Print output Banner **********
 
-        System.out.println(Sktr.getBanner());
+        System.out.println(programInfo.getBanner());
 	    	
     // ************************ get input **********************
         strin = fin.readLine();
@@ -71,7 +72,7 @@ public class a4Client {  // begin class
         }
     // ******** closing message *********
         
-        System.out.println(Sktr.getClosingMessage());
+        System.out.println(programInfo.getClosingMessage());
         
     // ***** close streams *****
         

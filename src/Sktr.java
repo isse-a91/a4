@@ -130,43 +130,6 @@ public class Sktr {
         return speed/time.size();
     } // end getBanner 
 
-    
-    /*****************************************
-    * Description: get banner
-    * 
-    * Interface:
-    * 
-    * @return       bnr: string, banner for output
-    * ****************************************/
-    public static String getBanner(){
-        String bnr = "";                    // banner
-        String nl = System.lineSeparator();
-        
-        bnr = "*******************************************" + nl;
-        bnr += "Name:		Ayub" + nl;
-        bnr += "Class:		CS30S" + nl;
-        bnr += "Assignment:	A4" + nl;
-        bnr += "*******************************************" + nl;
-        
-        return bnr;
-    } // end getBanner
-   
-    /*****************************************
-    * Description: print banner information to the console window
-    * 
-    * Interface:
-    * 
-    * 
-    * @return       cls string: closing message 
-    * ****************************************/
-    public static String getClosingMessage(){
-        String cls = "";
-        
-        cls = "end of proccesing";
-        
-        return cls;
-    } // end getClosingMessage
-
     /*****************************************
     * Description:  create and return output 
     * 
